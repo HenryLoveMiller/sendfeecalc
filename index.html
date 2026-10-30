@@ -92,7 +92,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font
     </tr></thead>
     <tbody></tbody>
   </table>
-  <p class="tiny" style="margin-top:12px">"Gap" is what you lose against the mid-market reference on the same amount. A negative gap means that channel beat the mid-market rate on the day it was recorded.</p>
+  <p class="tiny" style="margin-top:12px">"Gap" is what you lose against the mid-market reference on the same amount. A negative gap means that channel beat the mid-market rate on the day it was recorded. Rows marked "not priced" are published figures that apply only at a specific amount or up to a stated cap — above that we have not read a published fee, so we do not print a number.</p>
 </div>
 
 <div class="grid2">
@@ -140,7 +140,7 @@ var ROWS = [
  {n:"Remitly — welcome rate", r:68.52, f:0, ftype:"flat", cap:2000, tag:"promo", note:"Promotional FX rate on the first C$2,000 for new customers only, one per customer. Not the everyday rate.", url:"https://www.remitly.com/ca/en/india/sendmoney"},
  {n:"Remitly — everyday rate", r:66.91, f:0, ftype:"flat", note:"Published everyday exchange rate. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.", url:"https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate"},
  {n:"Taptap Send", r:67.75, f:0, ftype:"flat", tag:"", note:"Rate and fee as recorded by an independent rate tracker on 28 Oct 2026. Provider publishes its own rate before you send.", url:"https://www.taptapsend.com/"},
- {n:"Wise — mid-market rate plus fee", r:67.7783, f:7.77, ftype:"flat", tag:"", note:"Wise's own comparison page: mid-market rate 67.7783 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer. An independent tracker recorded 2.58 CAD for the same route on the same day.", url:"https://wise.com/ca/compare/remitly-cad-to-inr"},
+ {n:"Wise — mid-market rate plus fee", r:67.7783, f:7.77, ftype:"flat", exactAmt:1000, tag:"", note:"Wise's own comparison page: mid-market rate 67.7783 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer. The fee is published for 1,000 CAD only, so it is shown only at that amount. An independent tracker recorded 2.58 CAD for the same route on the same day.", url:"https://wise.com/ca/compare/remitly-cad-to-inr"},
  {n:"Mid-market reference (benchmark)", r:REF_MM, f:0, ftype:"flat", tag:"", base:true, note:"ECB reference rate via open.er-api.com. Not a transfer route — it is the number every provider's spread is measured against."}
 ];
 
@@ -155,7 +155,9 @@ function feeFor(row){
 }
 function calc(row, amt){
   /* A row with a cap is a published figure that only applies up to that amount.
-     Above it we have not read a published fee, so we do not print a number. */
+     A row with exactAmt is a figure published for one specific amount only.
+     Outside that range we have not read a published fee, so we print no number. */
+  if(row.exactAmt && amt !== row.exactAmt) return {excluded:true, cap:row.exactAmt};
   if(row.cap && amt > row.cap) return {excluded:true, cap:row.cap};
   var fee = row.n.indexOf("Remitly — everyday")>=0 ? (amt>=500?0:1.99) : (row.f||0);
   var get = (amt-fee)*row.r;
