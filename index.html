@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAD to INR: What Your Family Actually Receives | Send Fee Calculator</title>
+<meta name="description" content="Compare what banks and money transfer apps actually deliver to India from Canada. Enter an amount in CAD and see the rupees that land in the account, including transfer fees and exchange rate spread.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://henrylovemiller.github.io/sendfeecalc/">
+<style>
+:root{--ink:#14181d;--mut:#5b6672;--line:#e3e7ec;--bg:#fbfcfd;--acc:#0d6efd;--ok:#0a7d4b;--warn:#b45309;--bad:#b42318}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 26px;border-bottom:1px solid var(--line);background:#fff}
+h1{font-size:30px;line-height:1.25;margin:0 0 10px;letter-spacing:-.4px}
+.sub{color:var(--mut);font-size:17px;margin:0;max-width:62ch}
+main{padding:30px 0 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:0 0 22px}
+h2{font-size:20px;margin:0 0 14px;letter-spacing:-.2px}
+h3{font-size:16px;margin:22px 0 8px}
+p{margin:0 0 12px}
+a{color:var(--acc)}
+.small{font-size:13.5px;color:var(--mut)}
+.tiny{font-size:12.5px;color:var(--mut);line-height:1.55}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+input[type=number],select{font:inherit;padding:10px 12px;border:1px solid #cbd2da;border-radius:8px;background:#fff;width:100%;max-width:230px}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.base td{font-weight:700;background:#f6f9ff}
+tr.excluded td{color:#8a94a0;background:#fafbfc}
+.badge{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut);background:#f6f8fa;white-space:nowrap}
+.badge.ok{color:var(--ok);border-color:#bfe3d0;background:#f1fbf6}
+.badge.warn{color:var(--warn);border-color:#f2ddb5;background:#fdf8ef}
+.badge.bad{color:var(--bad);border-color:#f3c8c3;background:#fdf3f2}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.stat{flex:1 1 190px;border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#fbfcfd}
+.stat b{display:block;font-size:22px;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--mut)}
+.note{border-left:3px solid var(--acc);background:#f6f9ff;padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 16px;font-size:14.5px}
+.note.warn{border-color:var(--warn);background:#fdf8ef}
+.srcs{font-size:13.5px}
+.srcs li{margin-bottom:7px}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font-size:13.5px;color:var(--mut)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>CAD to INR: what your family actually receives</h1>
+  <p class="sub">A transfer rate is not a payout. Compare what banks and money transfer apps actually deliver to an account in India, after the transfer fee and the exchange rate spread are taken out.</p>
+</div></header>
+
+<main class="wrap">
+
+<div class="note">
+  <b>How this is built.</b> Every provider figure below was read from that provider's own published page on the date shown in the table, not estimated. The mid-market reference is refreshed live from the European Central Bank reference feed. Rates move during the day — always confirm the final amount on the provider's own site before you send.
+</div>
+
+<div class="card">
+  <h2>Calculator</h2>
+  <div class="row">
+    <div>
+      <label for="amt">You send (CAD)</label>
+      <input type="number" id="amt" value="1000" min="1" step="50" inputmode="decimal">
+    </div>
+    <div>
+      <label for="ch">Channel</label>
+      <select id="ch"></select>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><span>Recipient receives</span><b id="out">—</b></div>
+    <div class="stat"><span>Cost above mid-market</span><b id="cost">—</b></div>
+    <div class="stat"><span>Effective rate you got</span><b id="eff">—</b></div>
+    <div class="stat"><span>Mid-market reference (live)</span><b id="mm">—</b></div>
+  </div>
+  <p class="tiny" style="margin-top:12px" id="mmnote">Loading the live mid-market reference…</p>
+</div>
+
+<div class="card">
+  <h2>CAD &rarr; INR compared</h2>
+  <p class="small">Provider rates and fees as published on <b>30 October 2026</b>. The mid-market row is a benchmark, not a transfer route.</p>
+  <table id="tbl">
+    <thead><tr>
+      <th>Channel</th><th class="num">Rate (INR per CAD)</th><th class="num">Fee</th>
+      <th class="num" id="threcv">Received on 1,000 CAD</th><th class="num">Gap vs mid-market</th><th>Notes</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+  <p class="tiny" style="margin-top:12px">"Gap" is what you lose against the mid-market reference on the same amount. A negative gap means that channel beat the mid-market rate on the day it was recorded.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h2>Why the headline rate lies</h2>
+    <p>Every provider quotes a rate. Almost none of them quote the same rate. The number that matters is what lands in the recipient's account, and that is rate minus fee minus spread.</p>
+    <p>A 67.7 rate sounds good until a 7.77 CAD fee is taken off 1,000 CAD before conversion — that fee alone moves the payout by roughly 190 INR per thousand sent.</p>
+    <p>Read the <a href="sources.html">full source notes</a> for exactly which page each number came from, and when it was read.</p>
+  </div>
+  <div class="card">
+    <h2>Questions people actually ask</h2>
+    <h3>Which channel is cheapest for a small amount?</h3>
+    <p>Under 500 CAD, Remitly's published fee is 1.99 CAD. At or above 500 CAD it is 0 CAD. Bank channels often carry zero transfer fees but publish a wider spread against mid-market.</p>
+    <h3>Does the bank channel ever win?</h3>
+    <p>On the day recorded here, yes for one channel, by a thin margin. Bank rates are often promotional for a first transfer and revert to a lower base rate afterwards — check what applies to your second transfer, not just your first.</p>
+    <h3>Is a first-transfer promo rate the real rate?</h3>
+    <p>No. A welcome rate is a one-time offer, capped at an amount, and for new customers only. Treat it as the exception, and the published everyday rate as the number to plan on.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>How we work</h2>
+  <ul class="small" style="margin:0 0 12px;padding-left:20px">
+    <li>Provider rates and fees are copied from the provider's own published page. We do not adjust, average or estimate them.</li>
+    <li>The mid-market reference comes from the European Central Bank feed, refreshed during the page view.</li>
+    <li>One provider on this page appears more than once, because it publishes more than one rate. The rows are labelled.</li>
+    <li><b>We are not paid by the providers listed here.</b> If referral links are added later, they will be marked as such at the point they appear, on this page, before you click.</li>
+  </ul>
+  <p class="tiny">This is general information about published prices, not financial advice, and not a recommendation to use any particular provider. Prices and eligibility change; verify on the provider's own site before sending money.</p>
+</div>
+
+</main>
+
+<footer><div class="wrap">
+  <p style="margin:0 0 8px"><b>Send Fee Calculator</b> — published prices for money transfers from Canada to India.</p>
+  <p style="margin:0"><a href="sources.html">Sources and read dates</a> · <a href="sitemap.xml">Sitemap</a></p>
+</div></footer>
+
+<script>
+var REF_MM = 67.787071; /* open.er-api.com CAD->INR, time_last_update 2026-10-29 00:02 UTC */
+var ROWS = [
+ {n:"ICICI Bank Canada — Money2India", r:68.8654, f:0, ftype:"flat", cap:6000, tag:"offer", note:"Published homepage rate. Bonus rate for a new customer on a first transfer up to C$1,000. Zero fees on transfers up to C$6,000 per transaction.", url:"https://www.icicibank.ca/"},
+ {n:"ICICI Bank Canada — standard FX rate", r:68.7358, f:0, ftype:"flat", cap:6000, tag:"offer", note:"Published FX rate page. Bonus rate for new customers on the first transfer up to C$1,000.", url:"https://www.icicibank.ca/personal/moneytransfers/fx-rate"},
+ {n:"ICICI Bank (Money2India, NRI desk)", r:67.61, f:0, ftype:"flat", tag:"", note:"Rate listed as of 29 Oct 2026, 5:00 PM IST, service charge shown as zero fee. Outward-remittance pricing in India is billed separately at INR 1,000 plus GST per transaction.", url:"https://www.icici.bank.in/nri-banking/money-transfer/money-transfer-rates"},
+ {n:"Remitly — welcome rate", r:68.52, f:0, ftype:"flat", cap:2000, tag:"promo", note:"Promotional FX rate on the first C$2,000 for new customers only, one per customer. Not the everyday rate.", url:"https://www.remitly.com/ca/en/india/sendmoney"},
+ {n:"Remitly — everyday rate", r:66.91, f:0, ftype:"flat", note:"Published everyday exchange rate. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.", url:"https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate"},
+ {n:"Taptap Send", r:67.75, f:0, ftype:"flat", tag:"", note:"Rate and fee as recorded by an independent rate tracker on 28 Oct 2026. Provider publishes its own rate before you send.", url:"https://www.taptapsend.com/"},
+ {n:"Wise — mid-market rate plus fee", r:67.7783, f:7.77, ftype:"flat", tag:"", note:"Wise's own comparison page: mid-market rate 67.7783 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer. An independent tracker recorded 2.58 CAD for the same route on the same day.", url:"https://wise.com/ca/compare/remitly-cad-to-inr"},
+ {n:"Mid-market reference (benchmark)", r:REF_MM, f:0, ftype:"flat", tag:"", base:true, note:"ECB reference rate via open.er-api.com. Not a transfer route — it is the number every provider's spread is measured against."}
+];
+
+var fmt = function(n){ return n.toLocaleString("en-CA",{minimumFractionDigits:2, maximumFractionDigits:2}); };
+var fmtI = function(n){ return Math.round(n).toLocaleString("en-CA"); };
+var AMT = 1000;
+
+function feeFor(row){
+  if(row.ftype!=="flat") return 0;
+  if(row.n.indexOf("Remitly — everyday")>=0) return AMT>=500?0:1.99;
+  return row.f||0;
+}
+function calc(row, amt){
+  /* A row with a cap is a published figure that only applies up to that amount.
+     Above it we have not read a published fee, so we do not print a number. */
+  if(row.cap && amt > row.cap) return {excluded:true, cap:row.cap};
+  var fee = row.n.indexOf("Remitly — everyday")>=0 ? (amt>=500?0:1.99) : (row.f||0);
+  var get = (amt-fee)*row.r;
+  return {fee:fee, get:get, eff: get/amt, gap: get - amt*REF_MM};
+}
+
+function renderTable(){
+  var tb = document.querySelector("#tbl tbody"); tb.innerHTML="";
+  ROWS.forEach(function(row){
+    var c = calc(row, AMT);
+    var tr = document.createElement("tr");
+    if(c.excluded){
+      tr.className = "excluded";
+      tr.innerHTML =
+        "<td><b>"+row.n+"</b>"+(row.tag? " <span class='badge'>"+row.tag+"</span>":"")+"<div class='tiny'>"+row.note+"</div></td>"+
+        "<td class='num'>"+row.r.toFixed(4)+"</td>"+
+        "<td class='num'>not priced</td>"+
+        "<td class='num'>—</td>"+
+        "<td class='num'>—</td>"+
+        "<td><a href='"+row.url+"' rel='nofollow noopener' target='_blank'>provider</a></td>";
+      tb.appendChild(tr);
+      return;
+    }
+    if(row.base) tr.className="base";
+    /* gap > 0 = 该渠道比中间价给得多（对用户有利）；gap < 0 = 少 */
+    var gapCls = row.base?"":(c.gap>=0?"badge ok":"badge bad");
+    var gapTxt = row.base?"—":(c.gap>=0?"+"+fmtI(c.gap)+" INR":"−"+fmtI(-c.gap)+" INR");
+    tr.innerHTML =
+      "<td><b>"+row.n+"</b>"+(row.tag?" <span class='badge'>"+row.tag+"</span>":"")+"<div class='tiny'>"+row.note+"</div></td>"+
+      "<td class='num'>"+row.r.toFixed(4)+"</td>"+
+      "<td class='num'>"+(c.fee>0?c.fee.toFixed(2)+" CAD":"0 CAD")+"</td>"+
+      "<td class='num'>"+fmtI(c.get)+" INR</td>"+
+      "<td class='num'><span class='"+gapCls+"'>"+gapTxt+"</span></td>"+
+      "<td><a href='"+row.url+"' rel='nofollow noopener' target='_blank'>provider</a></td>";
+    tb.appendChild(tr);
+  });
+}
+
+function renderSelect(){
+  var s=document.getElementById("ch"); s.innerHTML="";
+  ROWS.filter(function(r){return !r.base;}).forEach(function(r,i){
+    var o=document.createElement("option"); o.value=i; o.textContent=r.n; s.appendChild(o);
+  });
+  s.value="0";
+}
+
+function update(){
+  AMT = Math.max(1, parseFloat(document.getElementById("amt").value)||1000);
+  var sel=document.getElementById("ch");
+  var row=ROWS.filter(function(r){return !r.base;})[parseInt(sel.value,10)||0];
+  var c = calc(row,AMT);
+  var th=document.getElementById("threcv");
+  if(th) th.textContent = "Received on "+fmtI(AMT)+" CAD";
+  if(c.excluded){
+    document.getElementById("out").textContent = "—";
+    document.getElementById("cost").textContent = "—";
+    document.getElementById("eff").textContent = "—";
+    renderTable();
+    return;
+  }
+  document.getElementById("out").textContent = fmtI(c.get)+" INR";
+  /* Total cost = what mid-market would have paid out, minus what this channel actually pays out */
+  document.getElementById("cost").textContent = fmt(Math.max(0, AMT*REF_MM-c.get)/row.r)+" CAD";
+  document.getElementById("eff").textContent = c.eff.toFixed(3)+" INR/CAD";
+  renderTable();
+}
+
+function loadMM(){
+  fetch("https://open.er-api.com/v6/latest/CAD")
+   .then(function(r){return r.json();})
+   .then(function(d){
+     var mm=d.rates.INR, upd=d.time_last_update_utc;
+     var el=document.getElementById("mm");
+     el.textContent=mm.toFixed(4);
+     document.getElementById("mmnote").textContent =
+       "1 CAD = "+mm.toFixed(4)+" INR, ECB reference via open.er-api.com, feed updated "+upd+". Provider rows were read from published pages on 30 Oct 2026 and do not move with this figure.";
+   })
+   .catch(function(){
+     document.getElementById("mmnote").textContent =
+       "Live mid-market reference could not be loaded right now. The table uses the 29 Oct 2026 ECB reference of "+REF_MM.toFixed(4)+" INR per CAD.";
+   });
+}
+
+document.getElementById("amt").addEventListener("input",update);
+document.getElementById("ch").addEventListener("change",update);
+renderSelect(); update(); loadMM();
+</script>
+</body>
+</html>
