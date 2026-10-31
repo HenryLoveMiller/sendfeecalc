@@ -75,7 +75,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font
   </div>
   <div class="stats">
     <div class="stat"><span>Recipient receives</span><b id="out">—</b></div>
-    <div class="stat"><span>Cost above mid-market</span><b id="cost">—</b></div>
+    <div class="stat"><span>Difference vs mid-market</span><b id="cost">—</b></div>
     <div class="stat"><span>Effective rate you got</span><b id="eff">—</b></div>
     <div class="stat"><span>Mid-market reference (live)</span><b id="mm">—</b></div>
   </div>
@@ -92,14 +92,14 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font
     </tr></thead>
     <tbody></tbody>
   </table>
-  <p class="tiny" style="margin-top:12px">"Gap" is what you lose against the mid-market reference on the same amount. A negative gap means that channel beat the mid-market rate on the day it was recorded. Rows marked "not priced" are published figures that apply only at a specific amount or up to a stated cap — above that we have not read a published fee, so we do not print a number.</p>
+  <p class="tiny" style="margin-top:12px">"Gap" is the difference between what that channel pays out and what a mid-market conversion would pay out on the same amount. <b>Positive means the channel beats the mid-market</b> (you receive more); negative means it loses to it. It is measured against the dated benchmark row, not the live rate in the calculator above. Rows marked "not priced" are published figures that apply only at a specific amount or up to a stated cap — above that we have not read a published fee, so we do not print a number.</p>
 </div>
 
 <div class="grid2">
   <div class="card">
     <h2>Why the headline rate lies</h2>
     <p>Every provider quotes a rate. Almost none of them quote the same rate. The number that matters is what lands in the recipient's account, and that is rate minus fee minus spread.</p>
-    <p>A 67.7 rate sounds good until a 7.77 CAD fee is taken off 1,000 CAD before conversion — that fee alone moves the payout by roughly 190 INR per thousand sent.</p>
+    <p>A 67.7 rate sounds good until a 7.77 CAD fee is taken off 1,000 CAD before conversion — that fee alone moves the payout by roughly 527 INR per thousand sent.</p>
     <p>Read the <a href="sources.html">full source notes</a> for exactly which page each number came from, and when it was read.</p>
   </div>
   <div class="card">
@@ -132,7 +132,13 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font
 </div></footer>
 
 <script>
-var REF_MM = 67.787071; /* open.er-api.com CAD->INR, time_last_update 2026-10-29 00:02 UTC */
+/* Mid-market reference used for every gap and cost figure in the table.
+   Single source of truth, dated: ECB reference rate via frankfurter.dev,
+   business date 2026-10-30. Same business date as the provider rows above,
+   so a gap compares like with like. The live card at the top is a separate,
+   separately dated figure and is NOT what this column is measured against. */
+var REF_MM = 67.974;
+var REF_MM_DATE = "2026-10-30";
 var ROWS = [
  {n:"ICICI Bank Canada — Money2India", r:68.8654, f:0, ftype:"flat", cap:6000, tag:"offer", note:"Published homepage rate. Bonus rate for a new customer on a first transfer up to C$1,000. Zero fees on transfers up to C$6,000 per transaction.", url:"https://www.icicibank.ca/"},
  {n:"ICICI Bank Canada — standard FX rate", r:68.7358, f:0, ftype:"flat", cap:6000, tag:"offer", note:"Published FX rate page. Bonus rate for new customers on the first transfer up to C$1,000.", url:"https://www.icicibank.ca/personal/moneytransfers/fx-rate"},
@@ -141,7 +147,7 @@ var ROWS = [
  {n:"Remitly — everyday rate", r:66.91, f:0, ftype:"flat", note:"Published everyday exchange rate. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.", url:"https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate"},
  {n:"Taptap Send", r:67.75, f:0, ftype:"flat", tag:"", note:"Rate and fee as recorded by an independent rate tracker on 28 Oct 2026. Provider publishes its own rate before you send.", url:"https://www.taptapsend.com/"},
  {n:"Wise — mid-market rate plus fee", r:67.7783, f:7.77, ftype:"flat", exactAmt:1000, tag:"", note:"Wise's own comparison page: mid-market rate 67.7783 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer. The fee is published for 1,000 CAD only, so it is shown only at that amount. An independent tracker recorded 2.58 CAD for the same route on the same day.", url:"https://wise.com/ca/compare/remitly-cad-to-inr"},
- {n:"Mid-market reference (benchmark)", r:REF_MM, f:0, ftype:"flat", tag:"", base:true, note:"ECB reference rate via open.er-api.com. Not a transfer route — it is the number every provider's spread is measured against."}
+ {n:"Mid-market reference (benchmark)", r:REF_MM, f:0, ftype:"flat", tag:"", base:true, note:"ECB reference rate, business date "+REF_MM_DATE+". Not a transfer route — it is the number every provider's spread is measured against, and it carries the same business date as the provider rows above.", url:"https://api.frankfurter.dev/v1/2026-10-30?base=CAD&symbols=INR"}
 ];
 
 var fmt = function(n){ return n.toLocaleString("en-CA",{minimumFractionDigits:2, maximumFractionDigits:2}); };
@@ -219,25 +225,29 @@ function update(){
     return;
   }
   document.getElementById("out").textContent = fmtI(c.get)+" INR";
-  /* Total cost = what mid-market would have paid out, minus what this channel actually pays out */
-  document.getElementById("cost").textContent = fmt(Math.max(0, AMT*REF_MM-c.get)/row.r)+" CAD";
+  /* Signed difference vs the dated mid-market benchmark, expressed as CAD.
+     Positive = this channel pays out more than a mid-market conversion would.
+     Negative = it pays out less. Clamping at zero would hide the cases where a
+     channel beats the mid-market, so the sign is kept. */
+  var vsMM = (c.get - AMT*REF_MM)/row.r;
+  document.getElementById("cost").textContent = (vsMM>0?"+":"−")+fmt(Math.abs(vsMM))+" CAD";
   document.getElementById("eff").textContent = c.eff.toFixed(3)+" INR/CAD";
   renderTable();
 }
 
 function loadMM(){
-  fetch("https://open.er-api.com/v6/latest/CAD")
+  fetch("https://api.frankfurter.dev/v1/latest?base=CAD&symbols=INR")
    .then(function(r){return r.json();})
    .then(function(d){
-     var mm=d.rates.INR, upd=d.time_last_update_utc;
+     var mm=d.rates.INR, dt=d.date;
      var el=document.getElementById("mm");
      el.textContent=mm.toFixed(4);
      document.getElementById("mmnote").textContent =
-       "1 CAD = "+mm.toFixed(4)+" INR, ECB reference via open.er-api.com, feed updated "+upd+". Provider rows were read from published pages on 30 Oct 2026 and do not move with this figure.";
+       "1 CAD = "+mm.toFixed(4)+" INR, ECB reference via frankfurter.dev, business date "+dt+". This is the latest published reference rate. The Gap column above is measured against the dated benchmark row ("+REF_MM_DATE+"), which is the same business date as the provider rates, so the two figures are not interchangeable.";
    })
    .catch(function(){
      document.getElementById("mmnote").textContent =
-       "Live mid-market reference could not be loaded right now. The table uses the 29 Oct 2026 ECB reference of "+REF_MM.toFixed(4)+" INR per CAD.";
+       "Live mid-market reference could not be loaded right now. The table below uses the "+REF_MM_DATE+" ECB reference of "+REF_MM.toFixed(4)+" INR per CAD.";
    });
 }
 
