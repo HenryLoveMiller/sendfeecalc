@@ -58,11 +58,12 @@ a{color:var(--acc)}
 <table>
 <thead><tr><th>Figure</th><th>Value</th><th>Read from</th></tr></thead>
 <tbody>
-<tr><td>Mid-market CAD to INR</td><td><b>67.787071 INR per CAD</b> (feed value last updated 29 Oct 2026, 00:02 UTC). The page refreshes this live from the same feed.</td><td><a href="https://open.er-api.com/v6/latest/CAD" rel="nofollow noopener" target="_blank">open.er-api.com — latest CAD rates</a>, European Central Bank reference data</td></tr>
-<tr><td>Cross-check</td><td><b>68.068 INR per CAD</b>, date 2026-10-29.</td><td><a href="https://api.frankfurter.dev/v1/latest?base=CAD&amp;symbols=INR" rel="nofollow noopener" target="_blank">api.frankfurter.dev</a>, European Central Bank reference data</td></tr>
+<tr><td>Mid-market CAD to INR — <b>the benchmark the Gap column is measured against</b></td><td><b>67.974 INR per CAD</b>, business date <b>30 Oct 2026</b>. Same business date as the provider rates above, so the comparison is like with like.</td><td><a href="https://api.frankfurter.dev/v1/2026-10-30?base=CAD&amp;symbols=INR" rel="nofollow noopener" target="_blank">api.frankfurter.dev</a> — European Central Bank reference rates, dated endpoint</td></tr>
+<tr><td>Mid-market CAD to INR — prior business day</td><td><b>68.068 INR per CAD</b>, business date 29 Oct 2026. Shown so you can see the reference rate move, not to be confused with the row above.</td><td><a href="https://api.frankfurter.dev/v1/2026-10-29?base=CAD&amp;symbols=INR" rel="nofollow noopener" target="_blank">api.frankfurter.dev</a> — European Central Bank reference rates, dated endpoint</td></tr>
+<tr><td>Mid-market CAD to INR — two business days back</td><td><b>67.79 INR per CAD</b>, business date 28 Oct 2026.</td><td><a href="https://api.frankfurter.dev/v1/2026-10-28?base=CAD&amp;symbols=INR" rel="nofollow noopener" target="_blank">api.frankfurter.dev</a> — European Central Bank reference rates, dated endpoint</td></tr>
 </tbody>
 </table>
-<p class="tiny" style="margin-top:10px">Two independent reads of the same ECB feed were used as a cross-check on 29 and 30 October 2026. They are not averaged together; each figure is labelled with where it came from.</p>
+<p class="tiny" style="margin-top:10px">One source, one figure per business date, each read from a dated endpoint that returns the same number every time it is requested. Earlier versions of this page carried a single mid-market number whose date label and cross-check figure pointed at different business days; that has been corrected. The calculator's live card shows the latest published reference rate, while its Gap column is measured against the dated benchmark row above — the two are labelled separately and are not interchangeable.</p>
 
 <h2>Known limits of this page</h2>
 <ul class="tiny" style="line-height:1.7">
