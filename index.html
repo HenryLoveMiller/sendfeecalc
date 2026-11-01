@@ -7,6 +7,46 @@
 <meta name="description" content="Compare what banks and money transfer apps actually deliver to India from Canada. Enter an amount in CAD and see the rupees that land in the account, including transfer fees and exchange rate spread.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://henrylovemiller.github.io/sendfeecalc/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Send Fee Calculator">
+<meta property="og:title" content="CAD to INR: What Your Family Actually Receives">
+<meta property="og:description" content="Compare what banks and money transfer apps actually deliver to an account in India from Canada, after the transfer fee and the exchange rate spread are taken out.">
+<meta property="og:url" content="https://henrylovemiller.github.io/sendfeecalc/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CAD to INR: What Your Family Actually Receives">
+<meta name="twitter:description" content="What banks and money transfer apps actually deliver to India from Canada, after fees and spread.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which channel is cheapest for a small amount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under 500 CAD, Remitly's published fee is 1.99 CAD. At or above 500 CAD it is 0 CAD. Bank channels often carry zero transfer fees but publish a wider spread against mid-market."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the bank channel ever win?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the day recorded here, yes, but only just. The two ICICI Bank Canada rates beat the mid-market benchmark by 891 and 762 INR on 1,000 CAD, about 1% each. Remitly's welcome rate also comes in above the benchmark, but that is a first-transfer promotion for new customers only, so it is not the number to plan on. Bank rates are often promotional for a first transfer and revert to a lower base rate afterwards, so check what applies to your second transfer, not just your first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a first-transfer promo rate the real rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A welcome rate is a one-time offer, capped at an amount, and for new customers only. Treat it as the exception, and the published everyday rate as the number to plan on."
+      }
+    }
+  ]
+}
+</script>
 <style>
 :root{--ink:#14181d;--mut:#5b6672;--line:#e3e7ec;--bg:#fbfcfd;--acc:#0d6efd;--ok:#0a7d4b;--warn:#b45309;--bad:#b42318}
 *{box-sizing:border-box}
@@ -90,7 +130,16 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font
       <th>Channel</th><th class="num">Rate (INR per CAD)</th><th class="num">Fee</th>
       <th class="num" id="threcv">Received on 1,000 CAD</th><th class="num">Gap vs mid-market</th><th>Notes</th>
     </tr></thead>
-    <tbody></tbody>
+    <tbody>
+      <tr><td><b>ICICI Bank Canada — Money2India</b> <span class='badge'>offer</span><div class='tiny'>Published homepage rate. Bonus rate for a new customer on a first transfer up to C$1,000. Zero fees on transfers up to C$6,000 per transaction.</div></td><td class='num'>68.8654</td><td class='num'>0 CAD</td><td class='num'>68,865 INR</td><td class='num'><span class='badge ok'>+891 INR</span></td><td><a href='https://www.icicibank.ca/' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>ICICI Bank Canada — standard FX rate</b> <span class='badge'>offer</span><div class='tiny'>Published FX rate page. Bonus rate for new customers on the first transfer up to C$1,000.</div></td><td class='num'>68.7358</td><td class='num'>0 CAD</td><td class='num'>68,736 INR</td><td class='num'><span class='badge ok'>+762 INR</span></td><td><a href='https://www.icicibank.ca/personal/moneytransfers/fx-rate' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>ICICI Bank (Money2India, NRI desk)</b><div class='tiny'>Rate listed as of 29 Oct 2026, 5:00 PM IST, service charge shown as zero fee. Outward-remittance pricing in India is billed separately at INR 1,000 plus GST per transaction.</div></td><td class='num'>67.6100</td><td class='num'>0 CAD</td><td class='num'>67,610 INR</td><td class='num'><span class='badge bad'>−364 INR</span></td><td><a href='https://www.icici.bank.in/nri-banking/money-transfer/money-transfer-rates' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>Remitly — welcome rate</b> <span class='badge'>promo</span><div class='tiny'>Promotional FX rate on the first C$2,000 for new customers only, one per customer. Not the everyday rate.</div></td><td class='num'>68.5200</td><td class='num'>0 CAD</td><td class='num'>68,520 INR</td><td class='num'><span class='badge ok'>+546 INR</span></td><td><a href='https://www.remitly.com/ca/en/india/sendmoney' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>Remitly — everyday rate</b><div class='tiny'>Published everyday exchange rate. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.</div></td><td class='num'>66.9100</td><td class='num'>0 CAD</td><td class='num'>66,910 INR</td><td class='num'><span class='badge bad'>−1,064 INR</span></td><td><a href='https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>Taptap Send</b><div class='tiny'>Rate and fee as recorded by an independent rate tracker on 28 Oct 2026. Provider publishes its own rate before you send.</div></td><td class='num'>67.7500</td><td class='num'>0 CAD</td><td class='num'>67,750 INR</td><td class='num'><span class='badge bad'>−224 INR</span></td><td><a href='https://www.taptapsend.com/' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr><td><b>Wise — mid-market rate plus fee</b><div class='tiny'>Wise's own comparison page: mid-market rate 67.7783 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer. The fee is published for 1,000 CAD only, so it is shown only at that amount. An independent tracker recorded 2.58 CAD for the same route on the same day.</div></td><td class='num'>67.7783</td><td class='num'>7.77 CAD</td><td class='num'>67,252 INR</td><td class='num'><span class='badge bad'>−722 INR</span></td><td><a href='https://wise.com/ca/compare/remitly-cad-to-inr' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+      <tr class="base"><td><b>Mid-market reference (benchmark)</b><div class='tiny'>ECB reference rate, business date 2026-10-30. Not a transfer route — it is the number every provider's spread is measured against, and it carries the same business date as the provider rows above.</div></td><td class='num'>67.9740</td><td class='num'>0 CAD</td><td class='num'>67,974 INR</td><td class='num'><span class=''>—</span></td><td><a href='https://api.frankfurter.dev/v1/2026-10-30?base=CAD&symbols=INR' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    </tbody>
   </table>
   <p class="tiny" style="margin-top:12px">"Gap" is the difference between what that channel pays out and what a mid-market conversion would pay out on the same amount. <b>Positive means the channel beats the mid-market</b> (you receive more); negative means it loses to it. It is measured against the dated benchmark row, not the live rate in the calculator above. Rows marked "not priced" are published figures that apply only at a specific amount or up to a stated cap — above that we have not read a published fee, so we do not print a number.</p>
 </div>
