@@ -317,7 +317,7 @@ function loadMM(){
 /* Shareable result: ?amt=<number> in the URL pre-fills the calculator, so a
    result can be shared as a link that shows the same amount and table. */
 (function(){
-  var m = /(^|&)amt=([0-9]+(?:\.[0-9]+)?)/.exec(location.search);
+  var m = /(^|[?&])amt=([0-9]+(?:\.[0-9]+)?)/.exec(location.search);
   if(m){
     var a = parseFloat(m[2]);
     if(a >= 1 && a <= 1000000) document.getElementById("amt").value = a;
