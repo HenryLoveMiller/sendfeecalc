@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INR to CAD calculator: how much to send so they receive it | Send Fee Calculator</title>
+<meta name="description" content="Enter the rupees your family needs to receive and see how many Canadian dollars each channel needs to send that amount — after transfer fees and exchange rate spread, on published rates.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://henrylovemiller.github.io/sendfeecalc/inr-to-cad-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Send Fee Calculator">
+<meta property="og:title" content="INR to CAD calculator: how much to send so they receive it">
+<meta property="og:description" content="Enter the rupees they need; get the CAD to send for each channel, with the gap against mid-market.">
+<meta property="og:url" content="https://henrylovemiller.github.io/sendfeecalc/inr-to-cad-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="INR to CAD calculator: how much to send so they receive it">
+<meta name="twitter:description" content="Enter the rupees they need; get the CAD to send for each channel, with the gap against mid-market.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many Canadian dollars do I need to send so my family receives 50,000 INR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the published rates we read on 3 November 2026, 50,000 INR needed 729.28 CAD through ICICI Bank Canada's Money2India offer, 736.71 CAD at ICICI Bank India's own Money2India table, 734.11 CAD at Remitly's welcome rate, 751.77 CAD at Remitly's everyday rate, and 740.00 CAD through Taptap Send. Wise is not priced at that amount because it publishes its transfer fee for 1,000 CAD only. A mid-market conversion of the same 50,000 INR needed 737.50 CAD at that day's European Central Bank reference rate of 67.797, so the cheapest channel we price asked for less than mid-market and the most expensive asked for 14.27 CAD more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I need more CAD than the exchange rate suggests?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a quoted rate is not a payout. The amount you must send is the rupees you need divided by the rate you actually get, plus the transfer fee that is taken off before conversion. A channel can quote a rate close to mid-market and still cost more than mid-market once the fee is added, and a channel can quote a slightly better rate and win on the amount you send."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an INR to CAD calculator I can use for other amounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This page is that calculator. Enter any target amount in rupees and it prices every channel we cover. The table below it also shows the CAD needed for 10,000, 50,000, 100,000, 500,000 and 1,000,000 INR, which are the amounts people search for most often."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these rates current?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are the published figures we read on 3 November 2026, except where a row states its own earlier date. Rates move during the day, and a provider sets the rate you get by amount, payment method, corridor and eligibility. Always confirm the final amount on the provider's own site before you send. The sources page records which page each figure came from and when it was read."
+      }
+    }
+  ]
+}
+</script>
+<style>
+:root{--ink:#14181d;--mut:#5b6672;--line:#e3e7ec;--bg:#fbfcfd;--acc:#0d6efd;--ok:#0a7d4b;--warn:#b45309;--bad:#b42318}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px}
+header{padding:44px 0 26px;border-bottom:1px solid var(--line);background:#fff}
+h1{font-size:30px;line-height:1.25;margin:0 0 10px;letter-spacing:-.4px}
+.sub{color:var(--mut);font-size:17px;margin:0;max-width:62ch}
+main{padding:30px 0 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:0 0 22px}
+h2{font-size:20px;margin:0 0 14px;letter-spacing:-.2px}
+h3{font-size:16px;margin:22px 0 8px}
+p{margin:0 0 12px}
+a{color:var(--acc)}
+.small{font-size:13.5px;color:var(--mut)}
+.tiny{font-size:12.5px;color:var(--mut);line-height:1.55}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+input[type=number]{font:inherit;padding:10px 12px;border:1px solid #cbd2da;border-radius:8px;background:#fff;width:100%;max-width:230px}
+button.share{font:inherit;font-size:14px;padding:10px 14px;border:1px solid #cbd2da;border-radius:8px;background:#f6f8fa;cursor:pointer}
+button.share:hover{background:#eef2f6}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.base td{font-weight:700;background:#f6f9ff}
+tr.excluded td{color:#8a94a0;background:#fafbfc}
+.badge{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut);background:#f6f8fa;white-space:nowrap}
+.badge.ok{color:var(--ok);border-color:#bfe3d0;background:#f1fbf6}
+.badge.warn{color:var(--warn);border-color:#f2ddb5;background:#fdf8ef}
+.badge.bad{color:var(--bad);border-color:#f3c8c3;background:#fdf3f2}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.stat{flex:1 1 190px;border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#fbfcfd}
+.stat b{display:block;font-size:22px;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--mut)}
+.note{border-left:3px solid var(--acc);background:#f6f9ff;padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 16px;font-size:14.5px}
+.qa{margin:0 0 14px}
+.qa b{display:block;margin-bottom:3px}
+.qa p{margin:0;color:var(--mut);font-size:14.5px}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font-size:13.5px;color:var(--mut)}
+.scroll{overflow-x:auto}
+@media(max-width:760px){h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>How much CAD do you send so they receive the rupees?</h1>
+  <p class="sub">Most transfers start from the other end: a fixed amount to land in India &mdash; a month&rsquo;s rent, a wedding, a medical bill. Enter that amount in rupees and see how many Canadian dollars each channel needs to send it. <b>Free to use &mdash; no sign-up, no advertising, and we are not paid by any provider listed.</b></p>
+</div></header>
+
+<main class="wrap">
+
+<div class="note">
+  <b>How this is built.</b> Every rate and fee below was read from that provider&rsquo;s own published page on the date shown, not estimated. The mid-market reference is the European Central Bank rate for the same business date, and the benchmark is what a conversion with <i>no fee at all</i> would have cost &mdash; the best case for mid-market, so the real gaps are smaller than the ones shown. Rates move during the day; confirm the final amount on the provider&rsquo;s own site before you send.
+</div>
+
+<div class="card">
+  <h2>Calculator</h2>
+  <div class="row">
+    <div>
+      <label for="inr">They need to receive (INR)</label>
+      <input type="number" id="inr" value="50000" min="1" step="500" inputmode="decimal">
+    </div>
+    <div>
+      <button id="shareBtn" type="button" class="share">Copy link to this amount</button>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><span>Cheapest channel to send</span><b id="best">&mdash;</b></div>
+    <div class="stat"><span>CAD that costs</span><b id="bestamt">&mdash;</b></div>
+    <div class="stat"><span>Mid-market equivalent</span><b id="mmeq">&mdash;</b></div>
+    <div class="stat"><span>Best vs mid-market</span><b id="bestgap">&mdash;</b></div>
+  </div>
+  <p class="tiny" style="margin-top:12px" id="mmnote">Loading the live mid-market reference&hellip;</p>
+</div>
+
+<div class="card">
+  <h2>CAD needed for <span id="tgt">50,000</span> INR</h2>
+  <p class="small">Provider rates and fees as published on <b>3 November 2026</b>, except where a row states its own date. The mid-market row is a benchmark, not a transfer route.</p>
+  <div class="scroll">
+  <table id="tbl">
+    <thead><tr>
+      <th>Channel</th><th class="num">Rate (INR per CAD)</th><th class="num">Fee</th>
+      <th class="num">CAD to send</th><th class="num">vs mid-market</th><th>Notes</th>
+    </tr></thead>
+    <tbody id="tb-main">
+    <tr><td><b>ICICI Bank Canada — Money2India</b> <span class='badge'>offer</span><div class='tiny'>Published Money2India rate. Bonus FX rate for a new customer on their first transfer up to 1,000 CAD, subject to eligibility and payment method. T&C apply. Zero fees on a first transfer up to 1,000 CAD under the Money2India (Canada) new-customer offer. Not priced above 1,000 CAD — we have not read a published figure for a larger amount.</div><div class='tiny'>vs mid-market 2026-11-03 (67.7970)</div></td><td class='num'>68.5616</td><td class='num'>0 CAD</td><td class='num'>729.28 CAD</td><td class='num'><span class='badge ok'>8.22 CAD less</span></td><td><a href='https://www.icicibank.ca/' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    <tr><td><b>ICICI Bank (Money2India, NRI desk)</b><div class='tiny'>Canada corridor rate on ICICI Bank India's own Money2India rate table, read 4 Nov 2026: 67.87 with a zero service charge. The table carries its own stamp of 30 Oct 2026 at 05:00 PM IST, so this row is dated behind the others and its gap is measured against the ECB reference for 30 Oct 2026, not against today's rate.</div><div class='tiny'>vs mid-market 2026-10-30 (67.9740)</div></td><td class='num'>67.8700</td><td class='num'>0 CAD</td><td class='num'>736.71 CAD</td><td class='num'><span class='badge bad'>1.13 CAD more</span></td><td><a href='https://www.icici.bank.in/nri-banking/money-transfer/money-transfer-rates' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    <tr><td><b>Remitly — welcome rate</b> <span class='badge'>promo</span><div class='tiny'>Promotional FX rate on the first 2,000 CAD of the transfer, new customers only, one per customer. Rates subject to change.</div><div class='tiny'>vs mid-market 2026-11-03 (67.7970)</div></td><td class='num'>68.1100</td><td class='num'>0 CAD</td><td class='num'>734.11 CAD</td><td class='num'><span class='badge ok'>3.39 CAD less</span></td><td><a href='https://www.remitly.com/ca/en/india/sendmoney' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    <tr><td><b>Remitly — everyday rate</b><div class='tiny'>Published everyday exchange rate, 1.00 CAD = 66.51 INR. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.</div><div class='tiny'>vs mid-market 2026-11-03 (67.7970)</div></td><td class='num'>66.5100</td><td class='num'>0 CAD</td><td class='num'>751.77 CAD</td><td class='num'><span class='badge bad'>14.27 CAD more</span></td><td><a href='https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    <tr><td><b>Taptap Send</b> <span class='badge'>tracker</span><div class='tiny'>Rate 67.75 INR per CAD as recorded by an independent rate tracker on 4 Nov 2026. Taptap Send does not publish a CAD to INR rate on its own site, so the rate is a tracker's reading, not a published provider rate — the provider publishes its own rate before you send. The fee is the Canada line in Taptap Send's own India fee table: 1.99 CAD, read 6 Nov 2026.</div><div class='tiny'>vs mid-market 2026-11-04 (67.9130)</div></td><td class='num'>67.7500</td><td class='num'>1.99 CAD</td><td class='num'>740.00 CAD</td><td class='num'><span class='badge bad'>3.76 CAD more</span></td><td><a href='https://www.taptapsend.com/en/send-money-to/india' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+    <tr class="excluded"><td><b>Wise — mid-market rate plus fee</b><div class='tiny'>Wise's own comparison page, quoted 3 Nov 2026 at 21:04 UTC: mid-market rate 67.7065 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer, so the recipient gets 67,180.42 INR. The fee is published for 1,000 CAD only, so we do not price other amounts.</div></td><td class='num'>67.7065</td><td class='num'>not priced</td><td class='num'>—</td><td class='num'>—</td><td><div class='tiny'>Wise publishes its transfer fee for 1,000 CAD only, and we have not read a fee for the amount this target needs — so we print no figure.</div></td></tr>
+    <tr class="base"><td><b>Mid-market reference (benchmark)</b><div class='tiny'>ECB reference rate, business date 2026-11-03. Not a transfer route — it is what converting the same rupees at mid-market with no fee at all would have cost, and it is the number every channel above is measured against.</div></td><td class='num'>67.7970</td><td class='num'>0 CAD</td><td class='num'>737.50 CAD</td><td class='num'><span class=''>—</span></td><td><a href='https://api.frankfurter.dev/v1/2026-11-03?base=CAD&symbols=INR' rel='nofollow noopener' target='_blank'>provider</a></td></tr>
+  </tbody>
+  </table>
+  </div>
+  <p class="tiny" style="margin-top:12px"><b>CAD to send</b> is the amount you must send so the recipient gets at least the target, after the fee is taken off and the remainder converted at that channel&rsquo;s published rate. <b>vs mid-market</b> compares it with what a fee-free mid-market conversion of the same rupee amount would have cost: &ldquo;8.22 CAD less&rdquo; means this channel needed less than mid-market, &ldquo;14.27 CAD more&rdquo; means it needed more. We print no figure where a provider has published no fee for that case &mdash; those rows say so instead of guessing.</p>
+</div>
+
+<div class="card">
+  <h2>The amounts people ask about</h2>
+  <p class="small">CAD each channel needs to send, for the rupee amounts that come up most often. Same published rates, same read dates as the table above.</p>
+  <div class="scroll">
+  <table id="tbl2">
+    <thead><tr>
+      <th>Channel</th><th class="num">10,000 INR</th><th class="num">50,000 INR</th><th class="num">100,000 INR</th><th class="num">500,000 INR</th><th class="num">1,000,000 INR</th>
+    </tr></thead>
+    <tbody id="tb-matrix">
+    <tr><td><b>ICICI Bank Canada — Money2India</b> <span class='badge'>offer</span><div class='tiny'>Published Money2India rate. Bonus FX rate for a new customer on their first transfer up to 1,000 CAD, subject to eligibility and payment method. T&C apply. Zero fees on a first transfer up to 1,000 CAD under the Money2India (Canada) new-customer offer. Not priced above 1,000 CAD — we have not read a published figure for a larger amount.</div></td><td class='num'>145.86 CAD</td><td class='num'>729.28 CAD</td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td></tr>
+    <tr><td><b>ICICI Bank (Money2India, NRI desk)</b><div class='tiny'>Canada corridor rate on ICICI Bank India's own Money2India rate table, read 4 Nov 2026: 67.87 with a zero service charge. The table carries its own stamp of 30 Oct 2026 at 05:00 PM IST, so this row is dated behind the others and its gap is measured against the ECB reference for 30 Oct 2026, not against today's rate.</div></td><td class='num'>147.35 CAD</td><td class='num'>736.71 CAD</td><td class='num'>1,473.41 CAD</td><td class='num'>7,367.03 CAD</td><td class='num'>14,734.06 CAD</td></tr>
+    <tr><td><b>Remitly — welcome rate</b> <span class='badge'>promo</span><div class='tiny'>Promotional FX rate on the first 2,000 CAD of the transfer, new customers only, one per customer. Rates subject to change.</div></td><td class='num'>146.83 CAD</td><td class='num'>734.11 CAD</td><td class='num'>1,468.22 CAD</td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td></tr>
+    <tr><td><b>Remitly — everyday rate</b><div class='tiny'>Published everyday exchange rate, 1.00 CAD = 66.51 INR. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.</div></td><td class='num'>152.35 CAD</td><td class='num'>751.77 CAD</td><td class='num'>1,503.54 CAD</td><td class='num'>7,517.67 CAD</td><td class='num'>15,035.34 CAD</td></tr>
+    <tr><td><b>Taptap Send</b> <span class='badge'>tracker</span><div class='tiny'>Rate 67.75 INR per CAD as recorded by an independent rate tracker on 4 Nov 2026. Taptap Send does not publish a CAD to INR rate on its own site, so the rate is a tracker's reading, not a published provider rate — the provider publishes its own rate before you send. The fee is the Canada line in Taptap Send's own India fee table: 1.99 CAD, read 6 Nov 2026.</div></td><td class='num'>149.60 CAD</td><td class='num'>740.00 CAD</td><td class='num'>1,478.01 CAD</td><td class='num'>7,382.07 CAD</td><td class='num'>14,762.14 CAD</td></tr>
+    <tr><td><b>Wise — mid-market rate plus fee</b><div class='tiny'>Wise's own comparison page, quoted 3 Nov 2026 at 21:04 UTC: mid-market rate 67.7065 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer, so the recipient gets 67,180.42 INR. The fee is published for 1,000 CAD only, so we do not price other amounts.</div></td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td><td class='num'><span class='tiny'>not priced</span></td></tr>
+    <tr class="base"><td><b>Mid-market reference (benchmark)</b></td><td class='num'>147.50 CAD</td><td class='num'>737.50 CAD</td><td class='num'>1,474.99 CAD</td><td class='num'>7,374.96 CAD</td><td class='num'>14,749.92 CAD</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <p class="tiny" style="margin-top:12px">500,000 INR is five lakh. &ldquo;Not priced&rdquo; means the published figure stops before that amount &mdash; for example a promotional rate capped at the first 1,000 or 2,000 CAD &mdash; so there is no published rate to convert with, and we do not extrapolate one.</p>
+</div>
+
+<div class="card">
+  <h2>Why the same rupees cost different amounts of CAD</h2>
+  <p>Because you are buying a rate, not a currency. Each provider publishes its own rate, and the amount you must send is the rupees you need divided by that rate, plus whatever fee is taken off first. Two providers can quote rates a fraction of a percent apart and still differ by tens of dollars on a large transfer, once the fee is added.</p>
+  <p>The mid-market comparison is the honest way to read it. The benchmark converts your rupee target at the European Central Bank reference rate with no fee at all &mdash; the best possible case for mid-market. Where a channel&rsquo;s figure sits below that, it beats mid-market on that day. Where it sits above, the gap is what the rate and fee actually cost you.</p>
+  <p>For the other direction of the same question, see <a href="./">CAD to INR: what your family actually receives</a>.</p>
+</div>
+
+<div class="card">
+  <h2>Questions people actually ask</h2>
+
+  <div class="qa">
+    <b>How many Canadian dollars do I need to send so my family receives 50,000 INR?</b>
+    <p>On the published rates we read on 3 November 2026, 50,000 INR needed 729.28 CAD through ICICI Bank Canada&rsquo;s Money2India offer, 736.71 CAD at ICICI Bank India&rsquo;s own Money2India table, 734.11 CAD at Remitly&rsquo;s welcome rate, 751.77 CAD at Remitly&rsquo;s everyday rate, and 740.00 CAD through Taptap Send. Wise is not priced at that amount because it publishes its transfer fee for 1,000 CAD only. A mid-market conversion of the same 50,000 INR needed 737.50 CAD at that day&rsquo;s European Central Bank reference rate of 67.797, so the cheapest channel we price asked for less than mid-market and the most expensive asked for 14.27 CAD more.</p>
+  </div>
+
+  <div class="qa">
+    <b>Why do I need more CAD than the exchange rate suggests?</b>
+    <p>Because a quoted rate is not a payout. The amount you must send is the rupees you need divided by the rate you actually get, plus the transfer fee that is taken off before conversion. A channel can quote a rate close to mid-market and still cost more than mid-market once the fee is added, and a channel can quote a slightly better rate and win on the amount you send.</p>
+  </div>
+
+  <div class="qa">
+    <b>Is there an INR to CAD calculator I can use for other amounts?</b>
+    <p>This page is that calculator. Enter any target amount in rupees and it prices every channel we cover. The table below it also shows the CAD needed for 10,000, 50,000, 100,000, 500,000 and 1,000,000 INR, which are the amounts people search for most often.</p>
+  </div>
+
+  <div class="qa">
+    <b>Are these rates current?</b>
+    <p>They are the published figures we read on 3 November 2026, except where a row states its own earlier date. Rates move during the day, and a provider sets the rate you get by amount, payment method, corridor and eligibility. Always confirm the final amount on the provider&rsquo;s own site before you send. The <a href="sources.html">sources page</a> records which page each figure came from and when it was read.</p>
+  </div>
+
+  <div class="qa">
+    <b>Which channel should I use?</b>
+    <p>We do not recommend one. We publish what each provider states, on the date we read it, and compare them like for like. Remitly&rsquo;s welcome rate is a first-transfer promotion for new customers and its everyday rate is the one to plan on from your second transfer onwards; the bank offer we price is capped at the first 1,000 CAD. Check your own quote on the provider&rsquo;s site before sending.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>What this does not cover</h2>
+  <ul class="tiny" style="line-height:1.7">
+    <li>Delivery times and speed options. Providers price express and economy differently and the published figures move; we leave them out rather than publish an average.</li>
+    <li>Payment method. The fee and rate we quote apply to the published page as read; some payment methods carry their own cost, which your own quote will show.</li>
+    <li>Your own rate. Providers set the rate you actually get by amount, payment method, corridor and eligibility. Use these figures to compare the shape of the cost, then check your quote on the provider&rsquo;s site.</li>
+    <li>Anything after 3 November 2026. These are the published figures we read on that date; the <a href="sources.html">sources page</a> records exactly which page each one came from.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Related pages</h2>
+  <ul class="tiny" style="line-height:1.7">
+    <li><a href="./">CAD to INR: what your family actually receives</a> &mdash; the other direction, with the full rate table across every channel.</li>
+    <li><a href="remitly-cad-to-inr.html">Remitly CAD to INR: which published rate applies to your transfer</a> &mdash; the two Remitly rates side by side, and the 500 CAD fee line.</li>
+    <li><a href="remitly-vs-wise-canada-to-india.html">Remitly vs Wise from Canada to India</a> &mdash; the same figures against Wise, including what changes on your second transfer.</li>
+    <li><a href="icici-bank-canada-money2india-rate.html">ICICI Bank Canada to India rate</a> &mdash; what the Money2India offer delivers, and where it stops.</li>
+    <li><a href="taptap-send-canada-to-india-fee.html">Taptap Send from Canada to India</a> &mdash; the other app channel, priced on its own published 1.99 CAD fee.</li>
+    <li><a href="sources.html">Sources and read dates</a> &mdash; which page each published figure came from, and when it was read.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>How we work</h2>
+  <ul class="small" style="margin:0 0 12px;padding-left:20px">
+    <li>Provider rates and fees are copied from the provider&rsquo;s own published pages. We do not adjust, average or estimate them.</li>
+    <li>Where an offer has a cap, we stop pricing at the cap instead of extrapolating a rate the provider has not published.</li>
+    <li>One provider appears more than once, because it publishes more than one rate. The rows are labelled.</li>
+    <li>Where a provider publishes no fee for your case, we print no number rather than a guess.</li>
+    <li><b>We are not paid by the providers listed here.</b> If referral links are added later, they will be marked as such at the point they appear, on this page, before you click.</li>
+  </ul>
+  <p class="tiny">This is general information about published prices, not financial advice, and not a recommendation to use any particular provider. Prices and eligibility change; verify on the provider&rsquo;s site before sending money.</p>
+</div>
+
+</main>
+
+<footer><div class="wrap">
+  <p style="margin:0 0 8px"><b>Send Fee Calculator</b> &mdash; published prices for money transfers from Canada to India. Free to use, no sign-up, no advertising.</p>
+  <p style="margin:0 0 8px">We are not a money transfer service and we do not handle your money. We are not paid by any provider listed here. If we ever add referral links, they will be labelled on the page where they appear. <a href="privacy.html">Privacy, funding and contact</a>.</p>
+  <p style="margin:0"><a href="./">&larr; Back to the calculator</a> &middot; <a href="sources.html">Sources and read dates</a> &middot; <a href="privacy.html">Privacy and contact</a> &middot; <a href="sitemap.xml">Sitemap</a></p>
+</div></footer>
+
+<script>
+/* Rows are the same published figures as the main calculator, on the same read
+   dates. This page inverts the direction: target rupees in, CAD to send out.
+   One source of truth — index.html owns the data; this page mirrors it and a
+   check script compares the two, so the two pages cannot drift apart. */
+var REF_MM = 67.797;
+var REF_MM_DATE = "2026-11-03";
+var TARGETS = [10000, 50000, 100000, 500000, 1000000];
+var R = [
+ {n:"ICICI Bank Canada — Money2India", r:68.5616, f:0, ftype:"flat", cap:1000, tag:"offer", note:"Published Money2India rate. Bonus FX rate for a new customer on their first transfer up to 1,000 CAD, subject to eligibility and payment method. T&C apply. Zero fees on a first transfer up to 1,000 CAD under the Money2India (Canada) new-customer offer. Not priced above 1,000 CAD — we have not read a published figure for a larger amount.", url:"https://www.icicibank.ca/"},
+ {n:"ICICI Bank (Money2India, NRI desk)", r:67.87, f:0, ftype:"flat", tag:"", mm:67.974, mmDate:"2026-10-30", note:"Canada corridor rate on ICICI Bank India's own Money2India rate table, read 4 Nov 2026: 67.87 with a zero service charge. The table carries its own stamp of 30 Oct 2026 at 05:00 PM IST, so this row is dated behind the others and its gap is measured against the ECB reference for 30 Oct 2026, not against today's rate.", url:"https://www.icici.bank.in/nri-banking/money-transfer/money-transfer-rates"},
+ {n:"Remitly — welcome rate", r:68.11, f:0, ftype:"flat", cap:2000, tag:"promo", note:"Promotional FX rate on the first 2,000 CAD of the transfer, new customers only, one per customer. Rates subject to change.", url:"https://www.remitly.com/ca/en/india/sendmoney"},
+ {n:"Remitly — everyday rate", r:66.51, f:0, ftype:"flat", tierFee:{below500:1.99, from500:0}, tag:"", note:"Published everyday exchange rate, 1.00 CAD = 66.51 INR. Transfer fee is 0 CAD at or above 500 CAD sent, 1.99 CAD below that.", url:"https://www.remitly.com/ca/en/currency-converter/cad-to-inr-rate"},
+ {n:"Taptap Send", r:67.75, f:1.99, ftype:"flat", mm:67.913, mmDate:"2026-11-04", tag:"tracker", note:"Rate 67.75 INR per CAD as recorded by an independent rate tracker on 4 Nov 2026. Taptap Send does not publish a CAD to INR rate on its own site, so the rate is a tracker's reading, not a published provider rate — the provider publishes its own rate before you send. The fee is the Canada line in Taptap Send's own India fee table: 1.99 CAD, read 6 Nov 2026.", url:"https://www.taptapsend.com/en/send-money-to/india"},
+ {n:"Wise — mid-market rate plus fee", r:67.7065, f:7.77, ftype:"flat", exactAmt:1000, tag:"", note:"Wise's own comparison page, quoted 3 Nov 2026 at 21:04 UTC: mid-market rate 67.7065 with a transparent transfer fee of 7.77 CAD on 1,000 CAD paid by bank transfer, so the recipient gets 67,180.42 INR. The fee is published for 1,000 CAD only, so we do not price other amounts.", url:"https://wise.com/ca/compare/remitly-cad-to-inr"},
+ {n:"Mid-market reference (benchmark)", r:REF_MM, f:0, ftype:"flat", tag:"", base:true, note:"ECB reference rate, business date "+REF_MM_DATE+". Not a transfer route — it is what converting the same rupees at mid-market with no fee at all would have cost, and it is the number every channel above is measured against.", url:"https://api.frankfurter.dev/v1/2026-11-03?base=CAD&symbols=INR"}
+];
+
+var fmt2 = function(n){ return n.toLocaleString("en-CA",{minimumFractionDigits:2, maximumFractionDigits:2}); };
+var fmtI = function(n){ return Math.round(n).toLocaleString("en-CA"); };
+/* Round the CAD to send UP to the next cent, so the recipient is never short
+   by a rounding artifact. */
+var up = function(n){ return Math.ceil(n*100)/100; };
+var TGT = 50000;
+
+function solve(row, target){
+  /* base = the mid-market benchmark row: what the same rupees cost at the
+     reference rate with no fee at all. */
+  if(row.base){
+    var mmv = row.mm || REF_MM;
+    return {priced:true, cad: target/mmv, fee:0, extra:0, mm:mmv, mmDate:(row.mmDate||REF_MM_DATE)};
+  }
+  var amt, fee;
+  if(row.tierFee){
+    /* Remitly publishes a fee that changes with the amount sent, so the fee
+       depends on the answer. Solve it, then re-check the tier the answer
+       actually lands in: a fee of 1.99 applies below 500 CAD sent, 0 at or above. */
+    var plain = target / row.r;
+    if(plain >= 500){ amt = plain; fee = row.tierFee.from500; }
+    else {
+      var withFee = plain + row.tierFee.below500;
+      if(withFee < 500){ amt = withFee; fee = row.tierFee.below500; }
+      else { amt = 500; fee = row.tierFee.from500; }
+    }
+  } else {
+    fee = row.f || 0;
+    amt = target / row.r + fee;
+  }
+  amt = up(amt);
+  if(row.exactAmt && Math.abs(amt - row.exactAmt) > 0.01){
+    return {priced:false, reason:"Wise publishes its transfer fee for 1,000 CAD only, and we have not read a fee for the amount this target needs — so we print no figure."};
+  }
+  if(row.cap && amt > row.cap + 0.005){
+    return {priced:false, reason:"The published offer stops at "+fmtI(row.cap)+" CAD, and above that there is no published rate to convert with."};
+  }
+  var mm = row.mm || REF_MM;
+  return {priced:true, cad:amt, fee:fee, extra: amt - target/mm, mm:mm, mmDate:(row.mmDate||REF_MM_DATE)};
+}
+
+function gapBadge(extra, isBase){
+  if(isBase) return "<span class=''>—</span>";
+  if(extra < -0.005) return "<span class='badge ok'>"+fmt2(-extra)+" CAD less</span>";
+  if(extra > 0.005) return "<span class='badge bad'>"+fmt2(extra)+" CAD more</span>";
+  return "<span class=''>—</span>";
+}
+
+function renderMain(){
+  var tb = document.querySelector("#tbl tbody"); tb.innerHTML="";
+  R.forEach(function(row){
+    var c = solve(row, TGT);
+    var tr = document.createElement("tr");
+    if(row.base) tr.className = "base";
+    if(!c.priced){
+      tr.className = (tr.className?tr.className+" ":"")+"excluded";
+      tr.innerHTML =
+        "<td><b>"+row.n+"</b>"+(row.tag? " <span class='badge'>"+row.tag+"</span>":"")+"<div class='tiny'>"+row.note+"</div></td>"+
+        "<td class='num'>"+row.r.toFixed(4)+"</td>"+
+        "<td class='num'>not priced</td>"+
+        "<td class='num'>—</td>"+
+        "<td class='num'>—</td>"+
+        "<td><div class='tiny'>"+c.reason+"</div></td>";
+      tb.appendChild(tr);
+      return;
+    }
+    var bench = row.base? "" : "<div class='tiny'>vs mid-market "+c.mmDate+" ("+c.mm.toFixed(4)+")</div>";
+    tr.innerHTML =
+      "<td><b>"+row.n+"</b>"+(row.tag?" <span class='badge'>"+row.tag+"</span>":"")+"<div class='tiny'>"+row.note+"</div>"+bench+"</td>"+
+      "<td class='num'>"+row.r.toFixed(4)+"</td>"+
+      "<td class='num'>"+(c.fee>0?c.fee.toFixed(2)+" CAD":"0 CAD")+"</td>"+
+      "<td class='num'>"+fmt2(c.cad)+" CAD</td>"+
+      "<td class='num'>"+gapBadge(c.extra, row.base)+"</td>"+
+      "<td><a href='"+row.url+"' rel='nofollow noopener' target='_blank'>provider</a></td>";
+    tb.appendChild(tr);
+  });
+}
+
+function renderMatrix(){
+  var tb = document.querySelector("#tbl2 tbody"); tb.innerHTML="";
+  R.forEach(function(row){
+    var tr = document.createElement("tr");
+    if(row.base) tr.className = "base";
+    var cells = "";
+    TARGETS.forEach(function(t){
+      var c = solve(row, t);
+      cells += "<td class='num'>"+(c.priced? fmt2(c.cad)+" CAD" : "<span class='tiny'>not priced</span>")+"</td>";
+    });
+    var label = "<b>"+row.n+"</b>"+(row.tag?" <span class='badge'>"+row.tag+"</span>":"");
+    if(!row.base) label += "<div class='tiny'>"+row.note+"</div>";
+    tr.innerHTML = "<td>"+label+"</td>"+cells;
+    tb.appendChild(tr);
+  });
+}
+
+function update(){
+  TGT = Math.max(1, parseFloat(document.getElementById("inr").value)||50000);
+  var tgt = document.getElementById("tgt");
+  if(tgt) tgt.textContent = fmtI(TGT);
+  var priced = R.filter(function(r){return !r.base;}).map(function(r){return {r:r, c:solve(r,TGT)};}).filter(function(x){return x.c.priced;});
+  priced.sort(function(a,b){ return a.c.cad - b.c.cad; });
+  var bestEl = document.getElementById("best"), amtEl = document.getElementById("bestamt"), gapEl = document.getElementById("bestgap");
+  if(priced.length){
+    var best = priced[0];
+    bestEl.textContent = best.r.n;
+    amtEl.textContent = fmt2(best.c.cad)+" CAD";
+    gapEl.textContent = best.c.extra < -0.005 ? fmt2(-best.c.extra)+" CAD less than mid-market"
+                    : best.c.extra > 0.005 ? fmt2(best.c.extra)+" CAD more than mid-market" : "level with mid-market";
+  } else {
+    bestEl.textContent = "—"; amtEl.textContent = "—"; gapEl.textContent = "—";
+  }
+  var base = solve(R.filter(function(r){return r.base;})[0], TGT);
+  var mmEl = document.getElementById("mmeq");
+  if(mmEl) mmEl.textContent = fmt2(base.cad)+" CAD";
+  renderMain();
+  renderMatrix();
+}
+
+function loadMM(){
+  fetch("https://api.frankfurter.dev/v1/latest?base=CAD&symbols=INR")
+   .then(function(r){return r.json();})
+   .then(function(d){
+     var mm=d.rates.INR, dt=d.date;
+     var el=document.getElementById("mmnote");
+     el.textContent = "1 CAD = "+mm.toFixed(4)+" INR, ECB reference via frankfurter.dev, business date "+dt+". This is the latest published reference rate. The vs mid-market column above is measured against the dated benchmark ("+REF_MM_DATE+"), which is the same business date as the provider rates, so the two figures are not interchangeable.";
+   })
+   .catch(function(){
+     document.getElementById("mmnote").textContent =
+       "Live mid-market reference could not be loaded right now. The table uses the "+REF_MM_DATE+" ECB reference of "+REF_MM.toFixed(4)+" INR per CAD.";
+   });
+}
+
+(function(){
+  var m = /(^|[?&])inr=([0-9]+(?:\.[0-9]+)?)/.exec(location.search);
+  if(m){
+    var a = parseFloat(m[2]);
+    if(a >= 1 && a <= 100000000) document.getElementById("inr").value = a;
+  }
+})();
+function shareLink(){
+  var btn = document.getElementById("shareBtn");
+  var u = location.origin + location.pathname + "?inr=" + TGT;
+  function done(){
+    btn.textContent = "Copied ✓";
+    setTimeout(function(){ btn.textContent = "Copy link to this amount"; }, 1500);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(u).then(done, function(){ prompt("Copy this link", u); });
+  } else {
+    prompt("Copy this link", u);
+  }
+}
+document.getElementById("inr").addEventListener("input",update);
+document.getElementById("shareBtn").addEventListener("click",shareLink);
+update(); loadMM();
+</script>
+</body>
+</html>
