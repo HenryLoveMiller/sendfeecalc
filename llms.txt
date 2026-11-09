@@ -1,0 +1,22 @@
+# Send Fee Calculator
+
+> Free, ad-free comparison of what money transfer banks and apps actually deliver to an account in India when you send Canadian dollars. Every rate and fee is read from that provider's own published page and carries the date it was read. We are not paid by any provider listed here, and there is no sign-up.
+
+Rates and fees are dated and change. Where a provider publishes no figure for your case — a second transfer, or an amount above its stated cap — this site prints no number rather than a guess. Every comparison is measured against the European Central Bank reference rate for the same business date as the provider figures, so a gap always compares like with like.
+
+## Compare rates and fees
+
+- [CAD to INR: what your family actually receives](https://henrylovemiller.github.io/sendfeecalc/): Main calculator. Enter an amount in CAD and see the rupees that land in the recipient's account after the transfer fee and the exchange-rate spread, for ICICI Bank Canada, Remitly (welcome and everyday rates), Taptap Send and Wise. Includes a copyable link that reopens the same amount with the full table.
+- [INR to CAD calculator](https://henrylovemiller.github.io/sendfeecalc/inr-to-cad-calculator.html): Reverse direction. Enter the rupees the recipient needs and see how many Canadian dollars each channel must send to deliver that amount.
+
+## Per-provider detail
+
+- [Remitly vs Wise from Canada to India](https://henrylovemiller.github.io/sendfeecalc/remitly-vs-wise-canada-to-india.html): What each one delivers in rupees on 1,000 CAD, including each transfer fee and the exchange-rate spread, and which one wins.
+- [Remitly CAD to INR: which rate applies to your transfer](https://henrylovemiller.github.io/sendfeecalc/remitly-cad-to-inr.html): Remitly publishes two different CAD to INR rates — a welcome rate for new customers on the first transfer and an everyday rate — plus a fee that applies only below C$500. Which one applies to you.
+- [ICICI Bank Canada to India rate](https://henrylovemiller.github.io/sendfeecalc/icici-bank-canada-money2india-rate.html): What ICICI Bank Canada's Money2India rate actually delivers, read from ICICI's own pages, including the bonus rate for a first transfer up to C$1,000 and the conditions attached to it.
+- [Taptap Send CAD to INR fee](https://henrylovemiller.github.io/sendfeecalc/taptap-send-canada-to-india-fee.html): Taptap Send's own pages disagree — its India page lists a CA$1.99 transfer fee for Canada while its app listing says India has "no fees, always". Both readings are priced side by side.
+
+## Sources and policy
+
+- [Sources and read dates](https://henrylovemiller.github.io/sendfeecalc/sources.html): Every provider rate and fee used on this site, with the exact page it was read from, the date it was read, and the limits of each figure.
+- [Privacy, funding and contact](https://henrylovemiller.github.io/sendfeecalc/privacy.html): How this site is funded, what it collects, what it does not collect, and how to reach a human.
