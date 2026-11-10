@@ -16,6 +16,8 @@ Most money-transfer comparisons start from the amount you send. A lot of real tr
 | [Remitly vs Wise](https://henrylovemiller.github.io/sendfeecalc/remitly-vs-wise-canada-to-india.html) | The same figures against Wise, including what changes on your second transfer. |
 | [ICICI Bank Canada → India](https://henrylovemiller.github.io/sendfeecalc/icici-bank-canada-money2india-rate.html) | What the Money2India offer delivers, and where it stops. |
 | [Taptap Send fee](https://henrylovemiller.github.io/sendfeecalc/taptap-send-canada-to-india-fee.html) | What the published C$1.99 fee actually costs you. |
+| [How long does it take](https://henrylovemiller.github.io/sendfeecalc/transfer-time-canada-to-india.html) | Each provider's own published delivery times, and why the Indian payout rail decides the wait more than the brand does. |
+| [How much can I send](https://henrylovemiller.github.io/sendfeecalc/transfer-limits-canada-to-india.html) | Each provider's own published sending ceiling — and why the limit is set by your funding account, not by the brand. |
 | [Sources and read dates](https://henrylovemiller.github.io/sendfeecalc/sources.html) | Which page each published figure came from, and when it was read. |
 
 ## How the numbers are produced
