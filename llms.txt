@@ -16,6 +16,7 @@ Rates and fees are dated and change. Where a provider publishes no figure for yo
 - [ICICI Bank Canada to India rate](https://henrylovemiller.github.io/sendfeecalc/icici-bank-canada-money2india-rate.html): What ICICI Bank Canada's Money2India rate actually delivers, read from ICICI's own pages, including the bonus rate for a first transfer up to C$1,000 and the conditions attached to it.
 - [Taptap Send CAD to INR fee](https://henrylovemiller.github.io/sendfeecalc/taptap-send-canada-to-india-fee.html): Taptap Send's own pages disagree — its India page lists a CA$1.99 transfer fee for Canada while its app listing says India has "no fees, always". Both readings are priced side by side.
 - [How long does it take to send money from Canada to India?](https://henrylovemiller.github.io/sendfeecalc/transfer-time-canada-to-india.html): Delivery times as each provider publishes them, and why the Indian payout rail (IMPS, NEFT/RTGS, UPI) decides how long the money takes more than the brand does. Includes Wise's published arrival time and fee for every way to fund a transfer.
+- [How much can I send from Canada to India?](https://henrylovemiller.github.io/sendfeecalc/transfer-limits-canada-to-india.html): The published sending ceiling from each provider's own page — Wise, Remitly, ICICI Bank Canada, Taptap Send, RBC and Scotiabank — and why the limit is set by the funding account rather than by the brand. Where a provider publishes two limits, both are printed.
 
 ## Sources and policy
 
