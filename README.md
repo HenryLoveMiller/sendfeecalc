@@ -1,6 +1,6 @@
 # sendfeecalc
 
-**Published remittance rates and fees for Canada → India.** Two calculators, one source of truth: how much CAD to send, and how much your family actually receives.
+**CAD to INR: what your family actually receives.** Published remittance rates and fees for Canada → India — every figure read from the provider's own published page, on the date it was read. Two calculators, one source of truth: how much CAD to send, and how much lands in the account.
 
 Live site: **https://henrylovemiller.github.io/sendfeecalc/**
 
