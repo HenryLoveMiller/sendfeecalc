@@ -125,6 +125,36 @@ tr.excluded td{color:#8a94a0;background:#fafbfc}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font-size:13.5px;color:var(--mut)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 @media(max-width:760px){.grid2{grid-template-columns:1fr}h1{font-size:25px}}
+/* 手机上把费率表改成竖排卡片（2026-11-27）。
+   为什么改：真浏览器 390px 实测，这张表 6 列宽 765px，被 .tablewrap 套在
+   300px 宽的滚动容器里 —— 首屏只有前两列（渠道名、汇率）看得见，
+   「到手多少卢比」和「比中间价多/少多少」这两列要横向滑动才看得到，
+   而这两列正是读者要的那个答案。计算器卡片能回答"发 1000 块到手多少"，
+   但回答不了"哪家最划算"，而后者才是比价站存在的理由。
+   怎么改：只动 CSS，DOM 一行没改（爬虫读到的原始 HTML 仍是完整表格）。
+   ≤520px 时每个渠道变成一块竖排卡片，列名用 ::before 标出；
+   thead 保留在 DOM 里（视觉隐藏），桌面端布局完全不受影响。
+   列名对齐表头：1 渠道名（不标）2 Rate (INR per CAD) 3 Fee
+   4 Recipient receives（表头随金额变，故不用写死"1,000 CAD"）
+   5 Gap vs mid-market 6 Provider link。 */
+@media(max-width:520px){
+  .tablewrap{overflow-x:visible}
+  .tablewrap table{min-width:0;display:block}
+  .tablewrap thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+  .tablewrap tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .tablewrap td{border-bottom:none;padding:1px 0}
+  .tablewrap td.num{text-align:left;white-space:normal}
+  .tablewrap td::before{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);font-weight:700;margin-top:7px}
+  .tablewrap td:nth-child(1)::before{content:none}
+  .tablewrap td:nth-child(2)::before{content:"Rate (INR per CAD)"}
+  .tablewrap td:nth-child(3)::before{content:"Fee"}
+  .tablewrap td:nth-child(4)::before{content:"Recipient receives"}
+  .tablewrap td:nth-child(5)::before{content:"Gap vs mid-market"}
+  .tablewrap td:nth-child(6)::before{content:"Provider link"}
+  .tablewrap tr.base td{background:transparent}
+  .tablewrap tr.base{background:#f6f9ff}
+}
 </style>
 </head>
 <body>
