@@ -103,6 +103,35 @@ tr.excluded td{color:#8a94a0;background:#fafbfc}
 footer{border-top:1px solid var(--line);padding:22px 0 40px;background:#fff;font-size:13.5px;color:var(--mut)}
 .scroll{overflow-x:auto}
 @media(max-width:760px){h1{font-size:25px}}
+/* 移动端（≤520px）：两张表改成竖排卡片。
+   为什么（2026-11-28 实测）：390px 下 .scroll 容器宽 300px，而 tbl 宽 661px、
+   tbl2 宽 688px → “CAD to send” 那列起点 x=398、50,000 INR 那列起点 x=267，
+   答案要横向滑 2 屏才看得到，而且表头跟着滑走，滑完也不知道哪列是哪列。
+   改法只动 CSS：表格转 block、thead 视觉隐藏（仍在 DOM 里，爬虫读到的表结构不变）、
+   每个渠道一块卡片、列名用 ::before 标出。DOM 一行没改，费率数字一个没动。 */
+@media(max-width:520px){
+  .scroll{overflow-x:visible}
+  #tbl,#tbl2{display:block;width:100%;min-width:0}
+  #tbl thead,#tbl2 thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  #tbl tbody,#tbl2 tbody,#tbl tr,#tbl2 tr,#tbl td,#tbl2 td{display:block;width:100%}
+  #tbl tr,#tbl2 tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  #tbl td,#tbl2 td{border-bottom:none;padding:1px 0}
+  #tbl td.num,#tbl2 td.num{text-align:left;white-space:normal}
+  #tbl td::before,#tbl2 td::before{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);font-weight:700;margin-top:7px}
+  #tbl td:nth-child(1)::before,#tbl2 td:nth-child(1)::before{content:none}
+  #tbl td:nth-child(2)::before{content:"Rate (INR per CAD)"}
+  #tbl td:nth-child(3)::before{content:"Fee"}
+  #tbl td:nth-child(4)::before{content:"CAD to send"}
+  #tbl td:nth-child(5)::before{content:"vs mid-market"}
+  #tbl td:nth-child(6)::before{content:"Notes / provider"}
+  #tbl2 td:nth-child(2)::before{content:"To deliver 10,000 INR"}
+  #tbl2 td:nth-child(3)::before{content:"To deliver 50,000 INR"}
+  #tbl2 td:nth-child(4)::before{content:"To deliver 100,000 INR"}
+  #tbl2 td:nth-child(5)::before{content:"To deliver 500,000 INR"}
+  #tbl2 td:nth-child(6)::before{content:"To deliver 1,000,000 INR"}
+  #tbl tr.base td,#tbl2 tr.base td{background:transparent}
+  #tbl tr.base,#tbl2 tr.base{background:#f6f9ff}
+}
 </style>
 </head>
 <body>
